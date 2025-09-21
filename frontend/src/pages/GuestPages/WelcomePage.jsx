@@ -9,7 +9,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api';
 
 const WelcomePage = () => {
   const { fetchAllProducts, products, setProducts } = productStore();

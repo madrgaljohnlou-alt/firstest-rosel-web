@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
-const API_URL = "http://localhost:5000/api/chat";
+const API_URL = process.env.NODE_ENV === 'production' ? '/api/chat' : 'http://localhost:5000/api/chat';
 axios.defaults.withCredentials = true;
 
 export const useChatStore = create((set, get) => ({
@@ -28,7 +28,7 @@ export const useChatStore = create((set, get) => ({
     initializeSocket: (token) => {
         console.log('Initializing socket with token:', token ? 'Token present' : 'No token');
         
-        const socket = io('http://localhost:5000', {
+        const socket = io(process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000', {
             auth: {
                 token: token
             }

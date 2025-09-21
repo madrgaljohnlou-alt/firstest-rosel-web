@@ -2,7 +2,7 @@ import {create} from "zustand";
 import axios from "axios";
 import { getRecaptchaToken } from "../utils/recaptcha";
 
-const API_URL= "http://localhost:5000/api/auth";
+const API_URL = process.env.NODE_ENV === 'production' ? '/api/auth' : 'http://localhost:5000/api/auth';
 
 axios.defaults.withCredentials = true;
 

@@ -195,7 +195,7 @@ function App() {
       // Get socket token from backend
       const getSocketToken = async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/auth/socket-token', {
+          const response = await fetch(process.env.NODE_ENV === 'production' ? '/api/auth/socket-token' : 'http://localhost:5000/api/auth/socket-token', {
             credentials: 'include' // Include cookies for authentication
           });
           

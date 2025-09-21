@@ -8,7 +8,7 @@ import { Flame } from "lucide-react";
 import { cartStore } from "../../store/cartStore.js";
 import { useAuthStore } from "../../store/authStore.js";
 
-const API_URL= "http://localhost:5000/api";
+const API_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api';
 
 axios.defaults.withCredentials = true;
 
