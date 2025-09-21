@@ -6,6 +6,7 @@
     "dev": "nodemon backend/index.js",
     "start": "node backend/index.js",
     "build": "cd frontend && npm install && npm run build",
+    "build-frontend": "cd frontend && npm run build",
     "install-client": "cd frontend && npm install",
     "install-server": "npm install",
     "install-all": "npm run install-server && npm run install-client",
